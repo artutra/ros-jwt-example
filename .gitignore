@@ -1,0 +1,12 @@
+node_modules
+dist
+*.realm
+*.realm.*
+realm-object-server
+data/
+logs/
+docker-compose.override.yml
+postgres_db/data
+postgres_db/dbexport.pgsql
+public.pem
+private.pem
