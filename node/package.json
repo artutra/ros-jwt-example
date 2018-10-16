@@ -1,0 +1,15 @@
+{
+    "name": "realm-node-listener",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "author": "Artur Miranda",
+    "description": "A realm node listener server",
+    "dependencies": {
+        "express": "^4.16.3",
+        "jsonwebtoken": "^8.3.0",
+        "realm": "^2.18.0"
+    }
+}
