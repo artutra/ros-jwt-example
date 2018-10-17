@@ -22,18 +22,18 @@ services:
     ports:
       - "9080:9080"
     environment:
-      - FEATURE_TOKEN=<YOUR-FEATURE-TOKEN>
+      - FEATURE_TOKEN=<YOUR-REALM-FEATURE-TOKEN>
   node:
     ports:
       - "3000:3000"
     environment:
-      - JWT_PASSPHRASE=<YOUR-JWT-PASSPHRASE>
+      - JWT_PASSPHRASE=<PASSPHRASE-USED-TO-GENERATE-PRIVATE.PEM>
       - PORT=3000
       - ROS_HOST=ros
       - ROS_PORT=9080
       - REALM_CONTENT_NAME=/content
 ```
-
-And finally you can run `docker-compose up`
+Replace FEATURE_TOKEN and JWT_PASSPHRASE variables with real values,
+and finally you can run `docker-compose up`
 
 Go to `http://localhost:9080` in your browser to see if its working
