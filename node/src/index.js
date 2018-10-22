@@ -13,7 +13,7 @@ const REALM_CONTENT_NAME = 'nodetest'
 
 const timeout = ms => new Promise(res => setTimeout(res, ms))
 
-const realmLogin = async function (forceAuthentication, containerName='admin') {
+const realmLogin = async function (containerName='admin') {
   console.log("Realm login...");
 
   try {
@@ -30,7 +30,7 @@ const realmLogin = async function (forceAuthentication, containerName='admin') {
     const milisec = 10000
     console.log("Retrying authentication in " + milisec/1000 + " seconds" )
     await timeout(milisec)
-    return realmLogin(true, containerName)
+    return realmLogin(containerName)
   }
 }
 
@@ -49,15 +49,7 @@ const getRealmInstance = async function (user) {
         error: (name, message, isFatal, category, code) => {
           console.log(name + message + isFatal + category + code)
         },
-      },
-      schema: [
-        Realm.Permissions.Role,
-        Realm.Permissions.User,
-        Realm.Permissions.Permission,
-        Realm.Permissions.Realm,
-        Realm.Permissions.Class,
-      ],
-      schemaVersion: 1
+      }
     }).catch(e => {
       console.log(e)
     })
@@ -68,7 +60,7 @@ const getRealmInstance = async function (user) {
 }
 
 async function main() {
-  var adminUser = await realmLogin(true, 'node_listener')
+  var adminUser = await realmLogin('node_listener')
   if(adminUser){
     var instance = await getRealmInstance(adminUser)
   }
